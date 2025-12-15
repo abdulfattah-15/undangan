@@ -255,10 +255,10 @@ export const guest = (() => {
         const url = new URL('https://calendar.google.com/calendar/render');
         const data = new URLSearchParams({
             action: 'TEMPLATE',
-            text: 'The Wedding of Wahyu and Riski',
-            dates: `${formatDate('2023-03-15 10:00')}/${formatDate('2023-03-15 11:00')}`,
+            text: 'The Wedding of Aqila and Fattah',
+            dates: `${formatDate('2026-01-11 08:00')}/${formatDate('2026-01-11 13:00')}`,
             details: 'Tanpa mengurangi rasa hormat, kami mengundang Anda untuk berkenan menghadiri acara pernikahan kami. Terima kasih atas perhatian dan doa restu Anda, yang menjadi kebahagiaan serta kehormatan besar bagi kami.',
-            location: 'RT 10 RW 02, Desa Pajerukan, Kec. Kalibagor, Kab. Banyumas, Jawa Tengah 53191.',
+            location: 'Auditorium Yos Sudarso, Komp. Seskoal, Laut Jawa No.1 4, RT.4/RW.11, Cipulir, Kec. Kebayoran Lama, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12230',
             ctz: config.get('tz'),
         });
 
@@ -319,7 +319,7 @@ export const guest = (() => {
     const pageLoaded = () => {
         lang.init();
         offline.init();
-        comment.init();
+        // comment.init();
         progress.init();
 
         config = storage('config');
@@ -333,7 +333,8 @@ export const guest = (() => {
         const params = new URLSearchParams(window.location.search);
 
         window.addEventListener('resize', util.debounce(slide));
-        document.addEventListener('undangan.progress.done', () => booting());
+        // document.addEventListener('undangan.progress.done', () => booting());
+        booting();
         document.addEventListener('hide.bs.modal', () => document.activeElement?.blur());
         document.getElementById('button-modal-download').addEventListener('click', (e) => {
             img.download(e.currentTarget.getAttribute('data-src'));
